@@ -30,15 +30,15 @@
 
       React.useEffect(() => {
         const spreadsheetId = "17meNocmInqv0vbbj6PeCUnsgvSSGqgoZpv0QpCQBG_I";
-        const range = "Sheet1!B1:K100"; // 曲名だけの列
+        const range = "Sheet1!C1:K1000";// 曲名だけの列
         const apiKey = "AIzaSyAkW3L5MdWE9MVxezump6aE-OPblpVmcds";    // 取得したAPIキーに置き換え
 
-        fetch(`https://sheets.googleapis.com/v4/spreadsheets/${spreadsheetId}/values/${encodeURIComponent(range)}?key=${apiKey}`)
+        fetch(`https://sheets.googleapis.com/v4/spreadsheets/${spreadsheetId}/values/${range}?key=${apiKey}`)
           .then(res => res.json())
           .then(data => {
             if (data.values) {
               // 重複を除いて配列を平坦化
-              //setSongs([...new Set(data.values.flat())]);
+              setSongs([...new Set(data.values.flat())]);
             }
           })
           .catch(err => console.error(err));
