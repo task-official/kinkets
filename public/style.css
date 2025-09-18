@@ -1,0 +1,156 @@
+@charset "UTF-8";
+        /* --- Basic Setup --- */
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #f0f4f8;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        /* --- Leaderboard Container --- */
+        .leaderboard {
+            width: 100%;
+            max-width: 550px;
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.07);
+            padding: 25px 30px;
+        }
+
+        .leaderboard-title {
+            text-align: center;
+            font-size: 2em;
+            font-weight: bold;
+            color: #1e293b;
+            margin-bottom: 20px;
+        }
+
+        /* --- The List --- */
+        .leaderboard ol {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            /* Creates the numbers for the list items */
+            counter-reset: leaderboard;
+        }
+
+        /* --- List Items General Style --- */
+        .leaderboard li.item {
+            position: relative;
+            display: flex;
+            align-items: center;
+            padding: 15px 20px 15px 65px; /* Space on left for number */
+            margin-bottom: 12px;
+            border-radius: 8px;
+            font-size: 1.1em;
+            font-weight: 500;
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+            border: 1px solid transparent; /* Base border */
+        }
+
+        .leaderboard li:hover {
+            transform: scale(1.03);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Make the content area flexible */
+        .leaderboard li span {
+            flex-grow: 1;
+            min-height: 24px; /* Ensures the item height is consistent even if empty */
+        }
+
+        /* --- Numbering Pseudo-element --- */
+        .leaderboard li::before {
+            /* Increments and displays the counter */
+            counter-increment: leaderboard;
+            content: counter(leaderboard);
+            
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 50px;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+            font-size: 1.2em;
+            border-top-left-radius: 8px;
+            border-bottom-left-radius: 8px;
+            border-right: 2px solid rgba(0,0,0,0.08);
+        }
+
+        /* --- Decoration Pseudo-element --- */
+        .leaderboard li::after {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.8em;
+            opacity: 0.9;
+        }
+
+        /* --- 1st Place --- */
+        .leaderboard .first {
+            background: linear-gradient(135deg, #fff2b2, #ffd700);
+            color: #6a5300;
+            font-weight: bold;
+            border-color: #ffe65a;
+        }
+        .leaderboard .first::before {
+            background-color: #ffde33;
+            color: #8c6d00;
+            border-right-color: #e6b800;
+        }
+        .leaderboard .first::after {
+            content: '👑'; /* Crown emoji */
+        }
+
+        /* --- 2nd Place --- */
+        .leaderboard .second {
+            background: linear-gradient(135deg, #f0f0f0, #c0c0c0);
+            color: #3f3f3f;
+            border-color: #d1d1d1;
+        }
+        .leaderboard .second::before {
+            background-color: #d4d4d4;
+            color: #4a4a4a;
+            border-right-color: #adadad;
+        }
+        .leaderboard .second::after {
+            content: '🥈';
+        }
+
+        /* --- 3rd Place --- */
+        .leaderboard .third {
+            background: linear-gradient(135deg, #f3d4b5, #cd7f32);
+            color: #4d2f0f;
+            border-color: #d79c5c;
+        }
+        .leaderboard .third::before {
+            background-color: #d8934b;
+            color: #fff;
+            border-right-color: #ab621f;
+        }
+        .leaderboard .third::after {
+            content: '🥉';
+        }
+
+        /* --- 4th and 5th Place --- */
+        .leaderboard .fourth,
+        .leaderboard .fifth {
+            background-color: #f8fafc;
+            color: #475569;
+            border-color: #e2e8f0;
+        }
+        .leaderboard .fourth::before,
+        .leaderboard .fifth::before {
+            background-color: #eef2f6;
+            color: #334155;
+            border-right-color: #d1d9e4;
+        }
