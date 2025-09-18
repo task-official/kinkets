@@ -1,27 +1,67 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>カラキン</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>カラキン</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- ReactとReactDOMをCDNから読み込む -->
+  <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+  <!-- JSXを使うためのBabel -->
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 </head>
 <body>
-    <div class="leaderboard">
-        <h1 class="leaderboard-title">カラキン</h1>
-        <a href="https://forms.gle/7sHYBbospheg7guT8">入力</a>
-        <ul>
-            <li>みんなの曲がわかる</li>
-            <li>普段聞いている曲をランキング化</li>
-        </ul>
-        <ol>
-            <li class="item first"><span>Blue Jean</span></li>
-            <li class="item second"><span>ライラック</span></li>
-            <li class="item third"><span>BAD LOVE</span></li>
-            <li class="item fourth"><span>IRIS OUT</span></li>
-            <li class="item fifth"><span>ROSE</span></li>
-        </ol>
-    </div>
+  <div class="leaderboard">
+    <h1 class="leaderboard-title">カラキン</h1>
+    <a href="https://forms.gle/7sHYBbospheg7guT8">入力</a>
+    <ul>
+      <li>みんなの曲がわかる</li>
+      <li>普段聞いている曲をランキング化</li>
+    </ul>
+  </div>
 
+  <!-- Reactの描画先 -->
+  <div id="root"></div>
+
+  <script type="text/babel">
+    function App() {
+      const [songs, setSongs] = React.useState([]);
+
+      React.useEffect(() => {
+        const spreadsheetId = "17meNocmInqv0vbbj6PeCUnsgvSSGqgoZpv0QpCQBG_I";
+        const range = "Sheet1!A1:A10"; // 曲名だけの列
+        const apiKey = "AIzaSyAkW3L5MdWE9MVxezump6aE-OPblpVmcds";    // 取得したAPIキーに置き換え
+
+        fetch(`https://sheets.googleapis.com/v4/spreadsheets/${spreadsheetId}/values/${encodeURIComponent(range)}?key=${apiKey}`)
+          .then(res => res.json())
+          .then(data => {
+            if (data.values) {
+              // 重複を除いて配列を平坦化
+              setSongs([...new Set(data.values.flat())]);
+            }
+          })
+          .catch(err => console.error(err));
+      }, []);
+
+      return (
+        <div className="ranking">
+          <h2>ランキング</h2>
+          {songs.length === 0 ? (
+            <p>データを読み込み中...</p>
+          ) : (
+            <ol>
+              {songs.map((song, index) => (
+                <li key={index}>{song}</li>
+              ))}
+            </ol>
+          )}
+        </div>
+      );
+    }
+
+    const root = ReactDOM.createRoot(document.getElementById('root'));
+    root.render(<App />);
+  </script>
 </body>
 </html>
