@@ -8,6 +8,11 @@ body {
   margin: 0;
   padding: 20px;
   box-sizing: border-box;
+  background-image: url(./image.jpg);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
 }
 
 .leaderboard {
@@ -25,6 +30,10 @@ body {
   font-weight: bold;
   color: #1e293b;
   margin-bottom: 20px;
+}
+
+span{
+  font-weight: bold;
 }
 
 .leaderboard ul {
@@ -45,6 +54,18 @@ body {
   font-size: 1.05em;
   transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
 }
+
+.list-item.high {
+    background: gold;
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+.list-item.medium {
+    background: silver;
+    font-weight: bold;
+}
+
 .list-item:hover {
   transform: scale(1.02);
   box-shadow: 0 6px 14px rgba(0,0,0,0.08);

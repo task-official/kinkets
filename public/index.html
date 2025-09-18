@@ -10,17 +10,25 @@
 
 <body>
     <div class="leaderboard">
-        <h1 class="leaderboard-title">カラキン</h1>
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLScCl6eDFxHR_Yw_43xBoZgcDnKJb0qizrs7NX_meDc2PFT1gw/viewform">入力フォーム</a>
-
-        <ul>
-            <li>CSVを読み込むと、2列目以降（1曲目〜10曲目）を集計して一覧表示します</li>
-            <li>タイムスタンプ列は自動で無視されます</li>
-        </ul>
+        <h1 class="leaderboard-title">🎤カラキン🎶</h1>
+        <p class="leaderboard-subtitle">～みんなの<span>よく聴く曲</span>から、カラオケの盛り上がり曲を見つけるアプリ！～</p>
+        <ol class="instructions">
+            <li>
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLScCl6eDFxHR_Yw_43xBoZgcDnKJb0qizrs7NX_meDc2PFT1gw/viewform" rel="noopener noreferrer" target="_blank">入力フォーム</a>
+                から自身の好きな曲を5～10曲入力してください
+            </li>
+            <li>
+                <a href="https://docs.google.com/spreadsheets/d/17meNocmInqv0vbbj6PeCUnsgvSSGqgoZpv0QpCQBG_I/edit?gid=724579823#gid=724579823" rel="noopener noreferrer" target="_blank">SpreadSheet</a>
+                からCSVファイルにエクスポートしてください
+                <br>ファイルタブ→ダウンロードボタン→CSV選択
+            </li>
+            <li>
+                以下のボタンからCSVファイルをアップロードしてください
+            </li>
+        </ol>
 
         <div class="controls">
             <input id="csv-input" type="file" accept=".csv" />
-            <label class="hint" for="csv-input">例）タイムスタンプ,１曲目,2曲目,...</label>
         </div>
 
         <ul id="rank-list">

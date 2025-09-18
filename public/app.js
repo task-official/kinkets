@@ -79,6 +79,10 @@ function renderList(entries) {
     entries.forEach(([name, count]) => {
         const li = document.createElement('li');
         li.className = 'list-item';
+        // 上位3位なら特別クラスを追加
+        if (count >= 5) li.classList.add('high');
+        else if (count >= 3) li.classList.add('medium');
+
         li.innerHTML = `<span>${name}</span><small>×${count}</small>`;
         list.appendChild(li);
     });
