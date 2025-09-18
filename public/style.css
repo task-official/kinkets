@@ -40,7 +40,7 @@
         }
 
         /* --- List Items General Style --- */
-        .leaderboard li.item {
+        .leaderboard ol li.item {
             position: relative;
             display: flex;
             align-items: center;
@@ -53,19 +53,19 @@
             border: 1px solid transparent; /* Base border */
         }
 
-        .leaderboard li:hover {
+        .leaderboard ol li:hover {
             transform: scale(1.03);
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
         }
         
         /* Make the content area flexible */
-        .leaderboard li span {
+        .leaderboard ol li span {
             flex-grow: 1;
             min-height: 24px; /* Ensures the item height is consistent even if empty */
         }
 
         /* --- Numbering Pseudo-element --- */
-        .leaderboard li::before {
+        .leaderboard ol li::before {
             /* Increments and displays the counter */
             counter-increment: leaderboard;
             content: counter(leaderboard);
@@ -86,7 +86,7 @@
         }
 
         /* --- Decoration Pseudo-element --- */
-        .leaderboard li::after {
+        .leaderboard ol li::after {
             position: absolute;
             right: 15px;
             top: 50%;
