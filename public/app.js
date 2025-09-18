@@ -2,22 +2,27 @@ function App() {
   const [songs, setSongs] = React.useState([]);
 
   React.useEffect(() => {
-    const spreadsheetId = "17meNocmInqv0vbbj6PeCUnsgvSSGqgoZpv0QpCQBG_I";
-    const range = "Sheet1!B2:K1000";
-    const apiKey = "AIzaSyAkW3L5MdWE9MVxezump6aE-OPblpVmcds";
+    const spreadsheetId = "17meNocmInqv0vbbj6PeCUnsgvSSGqgoZpv0QpCQBG_I"; // シートID
+    const range = "Sheet1!B2:K1000"; // 曲名範囲
+    const apiKey = "AIzaSyAkW3L5MdWE9MVxezump6aE-OPblpVmcds"; // Google APIキー
 
     fetch(`https://sheets.googleapis.com/v4/spreadsheets/${spreadsheetId}/values/${range}?key=${apiKey}`)
       .then(res => res.json())
       .then(data => {
         if (data.values) {
-          const flat = data.values.flat().filter(v => v && v.trim() !== "");
           const counts = new Map();
-          flat.forEach(val => counts.set(val, (counts.get(val) || 0) + 1));
-          const sorted = Array.from(counts.entries()).sort((a, b) => b[1] - a[1]);
+          data.values.flat().forEach(song => {
+            const s = song?.trim();
+            if (s) {
+              counts.set(s, (counts.get(s) || 0) + 1);
+            }
+          });
+          const sorted = Array.from(counts.entries())
+            .sort((a, b) => b[1] - a[1]); // 出現回数で降順
           setSongs(sorted);
         }
       })
-      .catch(err => console.error(err));
+      .catch(err => console.error("APIエラー:", err));
   }, []);
 
   return (
@@ -36,5 +41,5 @@ function App() {
   );
 }
 
-const root = ReactDOM.createRoot(document.getElementById("root"));
+const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(<App />);
