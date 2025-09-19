@@ -32,6 +32,11 @@ body {
   margin-bottom: 20px;
 }
 
+.leaderboard .instructions li {
+  padding-bottom: 12px; 
+}
+
+
 span{
   font-weight: bold;
 }
