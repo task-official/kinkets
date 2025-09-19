@@ -1,42 +1,28 @@
 <!DOCTYPE html>
 <html lang="ja">
-
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>カラキン</title>
-    <link rel="stylesheet" href="./styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>カラキン</title>
+  <link rel="stylesheet" href="styles.css">
+  <!-- React と ReactDOM を CDN から読み込み -->
+  <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+  <!-- JSX を使うための Babel -->
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <!-- React コード -->
+  <script src="./app.js" type="text/babel" defer></script>
 </head>
-
 <body>
-    <div class="leaderboard">
-        <h1 class="leaderboard-title">🎤カラキン🎶</h1>
-        <p class="leaderboard-subtitle">～みんなの<span>よく聴く曲</span>から、カラオケの盛り上がり曲を見つけるアプリ！～</p>
-        <ol class="instructions">
-            <li>
-                <a href="https://docs.google.com/forms/d/e/1FAIpQLScCl6eDFxHR_Yw_43xBoZgcDnKJb0qizrs7NX_meDc2PFT1gw/viewform" rel="noopener noreferrer" target="_blank">入力フォーム</a>
-                から自身の好きな曲を5～10曲入力してください
-            </li>
-            <li>
-                <a href="https://docs.google.com/spreadsheets/d/17meNocmInqv0vbbj6PeCUnsgvSSGqgoZpv0QpCQBG_I/edit?gid=724579823#gid=724579823" rel="noopener noreferrer" target="_blank">SpreadSheet</a>
-                からCSVファイルにエクスポートしてください
-                <br>ファイルタブ→ダウンロードボタン→CSV選択
-            </li>
-            <li>
-                以下のボタンからCSVファイルをアップロードしてください
-            </li>
-        </ol>
-
-        <div class="controls">
-            <input id="csv-input" type="file" accept=".csv" />
-        </div>
-
-        <ul id="rank-list">
-            <!-- JSがここに項目を挿入します -->
-        </ul>
-    </div>
-
-    <script src="./app.js" defer></script>
+  <div class="leaderboard">
+    <h1 class="leaderboard-title">カラキン</h1>
+    <a href="https://forms.gle/7sHYBbospheg7guT8" target="_blank">入力</a>
+    <ul>
+      <li>みんなの曲がわかる</li>
+      <li>普段聞いている曲をランキング化</li>
+    </ul>
+    <!-- React 描画先 -->
+  <div id="root"></div>
+  </div>
 </body>
-
 </html>
