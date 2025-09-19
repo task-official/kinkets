@@ -1,28 +1,40 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>カラキン</title>
-  <link rel="stylesheet" href="styles.css">
-  <!-- React と ReactDOM を CDN から読み込み -->
-  <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
-  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
-  <!-- JSX を使うための Babel -->
-  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-  <!-- React コード -->
-  <script src="./app.js" type="text/babel" defer></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>カラキン</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- React と ReactDOM を CDN から読み込み -->
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <!-- JSX を使うための Babel -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <!-- React コード -->
+    <script src="./app.js" type="text/babel" defer></script>
 </head>
+
 <body>
-  <div class="leaderboard">
-    <h1 class="leaderboard-title">カラキン</h1>
-    <a href="https://forms.gle/7sHYBbospheg7guT8" target="_blank">入力</a>
-    <ul>
-      <li>みんなの曲がわかる</li>
-      <li>普段聞いている曲をランキング化</li>
-    </ul>
-    <!-- React 描画先 -->
-  <div id="root"></div>
-  </div>
+    <div class="leaderboard">
+        <h1 class="leaderboard-title">カラキン</h1>
+        <p>～みんなの​プレイリストから​カラオケの​盛り​上がり曲を​見つける​アプリ！​～</p>
+        <h2>使い方</h2>
+        <ol class="instructions">
+            <li>
+                <a href="https://forms.gle/7sHYBbospheg7guT8" target="_blank">Google Form</a>
+                に<span class="bold">​最近​よく​聞く​プレイリストの​曲</span>を​入力してください！<br><span>​※歌える​曲じゃないよ</span>
+            </li>
+            <li>
+                カラキンの画面をリロードしてください！
+            </li>
+            <li>
+                ランキングの曲を​参考に、​カラオケで​盛り上がろう！​
+            </li>
+        </ol>
+        <!-- React 描画先 -->
+        <div id="root"></div>
+    </div>
 </body>
+
 </html>
