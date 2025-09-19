@@ -32,7 +32,7 @@ body {
   margin-bottom: 20px;
 }
 
-.bold{
+span{
   font-weight: bold;
 }
 
@@ -41,51 +41,47 @@ body {
   color: #475569;
 }
 
-.instructions li{
-  padding-bottom: 10px;
-}
-.instructions li :last-child{
-  padding-bottom: 0px;
-}
-
-.list{
-  padding-left: 0px;
-}
-
-/* 一覧アイテム */
-.list-item {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  position: relative;
-  padding: 12px 16px;
-  margin-bottom: 8px;
+/* アーティストのアイテム */
+.artist-item {
+  margin-bottom: 10px;
   border-radius: 8px;
   background-color: #f8fafc;
   border: 1px solid #e2e8f0;
-  font-size: 1.05em;
-  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  overflow: hidden; /* 子要素のはみ出しを防ぐ */
 }
 
-.count{
-  position: absolute;
-  right : 10px;
+/* アーティスト名と合計回数のヘッダー */
+.artist-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 16px;
+  cursor: pointer;
+  font-size: 1.1em;
+  font-weight: bold;
+  transition: background-color 0.2s ease-in-out;
 }
 
-.list-item.high {
-    background: gold;
-    font-weight: bold;
-    font-size: 1.2em;
+.artist-header:hover {
+  background-color: #f1f5f9;
 }
 
-.list-item.medium {
-    background: silver;
-    font-weight: bold;
+/* 曲リスト */
+.song-list {
+  padding: 0 16px 12px 36px; /* 左のパディングを調整 */
+  margin: 0;
+  list-style-type: decimal; /* 番号付きリスト */
+  background-color: #ffffff;
+  border-top: 1px solid #e2e8f0;
 }
 
-.list-item:hover {
-  transform: scale(1.02);
-  box-shadow: 0 6px 14px rgba(0,0,0,0.08);
+.song-list li {
+  padding: 8px 0;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.song-list li:last-child {
+  border-bottom: none;
 }
 
 .controls {
