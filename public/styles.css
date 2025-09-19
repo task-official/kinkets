@@ -32,7 +32,7 @@ body {
   margin-bottom: 20px;
 }
 
-span{
+.bold{
   font-weight: bold;
 }
 
@@ -41,11 +41,23 @@ span{
   color: #475569;
 }
 
+.instructions li{
+  padding-bottom: 10px;
+}
+.instructions li :last-child{
+  padding-bottom: 0px;
+}
+
+.list{
+  padding-left: 0px;
+}
+
 /* 一覧アイテム */
 .list-item {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: relative;
   padding: 12px 16px;
   margin-bottom: 8px;
   border-radius: 8px;
@@ -53,6 +65,11 @@ span{
   border: 1px solid #e2e8f0;
   font-size: 1.05em;
   transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.count{
+  position: absolute;
+  right : 10px;
 }
 
 .list-item.high {
@@ -76,8 +93,4 @@ span{
   gap: 8px;
   align-items: center;
   margin: 12px 0 18px;
-}
-.hint {
-  color: #64748b;
-  font-size: .9em;
 }
