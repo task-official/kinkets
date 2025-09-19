@@ -5,12 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>カラキン</title>
   <link rel="stylesheet" href="styles.css">
-  <!-- ReactとReactDOMをCDNから読み込む -->
+  <!-- React と ReactDOM を CDN から読み込み -->
   <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
   <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
-  <!-- JSXを使うためのBabel -->
+  <!-- JSX を使うための Babel -->
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-  <!-- Reactコードを外部ファイルから読み込む -->
+  <!-- React コード -->
   <script src="./app.js" type="text/babel" defer></script>
 </head>
 <body>
@@ -21,9 +21,9 @@
       <li>みんなの曲がわかる</li>
       <li>普段聞いている曲をランキング化</li>
     </ul>
+    <!-- React 描画先 -->
+  <div id="root"></div>
   </div>
 
-  <!-- Reactの描画先 -->
-  <div id="root"></div>
 </body>
 </html>
