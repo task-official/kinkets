@@ -94,3 +94,22 @@ body {
   align-items: center;
   margin: 12px 0 18px;
 }
+
+@media (max-width: 600px) {
+  html, body {
+    height: 100dvh;
+    overflow: hidden;          
+    overscroll-behavior: none;
+  }
+
+  .leaderboard {
+    max-height: calc(100dvh - 40px);
+    overflow: auto;                  
+    -webkit-overflow-scrolling: touch; 
+  }
+
+  .list-item {
+    font-size: 0.9em;
+    padding: 10px 14px;
+  }
+}
